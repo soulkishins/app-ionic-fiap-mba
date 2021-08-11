@@ -1,0 +1,15 @@
+{
+  "name": "Ionic Nubank",
+  "short_name": "Ionic Nubank",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/img/appicon.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#8818e8",
+  "theme_color": "#8818e8"
+}

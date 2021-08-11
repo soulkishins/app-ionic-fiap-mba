@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border nu-toolbar">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+          text=""
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none" *ngIf="!optIns">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><p>Ops, ainda não temos acesso a sua agenda.</p></h2>
+        <p>Habilite agora mesmo.</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-button color="success" routerLink="/optin">Habilitar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list lines="none" *ngIf="calendar">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Recebíveis Futuros</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h1><b>R$ {{calendar.value | number:'1.2-2'}}</b></h1>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        Antecipe e receba hoje R$ {{calendar.netValue | number:'1.2-2'}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-button color="primary">Antecipar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <hr *ngIf="calendar && optIns" style="border-top-width: 1px; border-color: grey;">
+
+  <ion-list lines="none" *ngIf="optIns">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Acesso as Agendas</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let optin of optIns">
+      <ion-label>
+        {{optin.banner}} - {{optin.acquirer}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-button color="success" routerLink="/optin">Novo Acesso</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <hr *ngIf="(calendar || optIns) && contracts" style="border-top-width: 1px; border-color: grey;">
+
+  <ion-list lines="none" *ngIf="contracts">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Contratos Ativos</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let contract of contracts" (click)="viewContract(contract)">
+      <ion-label>
+        <h1><b>R$ {{contract.contractValue | number:'1.2-2'}}</b></h1>
+        <h4><p>Vencimento em {{contract.endDate | date:'MM/yyyy'}}</p></h4>
+      </ion-label>
+      <ion-icon style="font-size: 16px;" slot="end" ios="chevron-forward-outline" md="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

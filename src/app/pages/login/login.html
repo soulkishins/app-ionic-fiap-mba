@@ -1,0 +1,70 @@
+<ion-content class="nu-backgroud">
+  <div class="login-logo">
+    <img src="assets/img/appicon.png" alt="Ionic logo">
+  </div>
+
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked" color="primary">E-mail</ion-label>
+        <ion-input
+          [(ngModel)]="login.username"
+          name="username"
+          type="text"
+          #username="ngModel"
+          spellcheck="false"
+          autocapitalize="off"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="username.valid || submitted == false" class="ion-padding-start">
+          Username is required
+        </p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="stacked" color="primary">Senha</ion-label>
+        <ion-input
+          [(ngModel)]="login.password"
+          name="password"
+          type="password"
+          #password="ngModel"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p [hidden]="password.valid || submitted == false" class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+    </ion-list>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Login</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <ion-text color="danger">
+    <p [hidden]="error == false" class="ion-padding-start">
+      Usuário não cadastrado ou senha incorreta!
+    </p>
+  </ion-text>
+
+  <ion-text color="primary">
+    <p class="ion-padding">
+      Informe demo1@example.com para acessar o empresa 1 de Demonstração
+    </p>
+  </ion-text>
+
+  <ion-text color="primary">
+    <p class="ion-padding">
+      Informe demo2@example.com para acessar o empresa 2 de Demonstração
+    </p>
+  </ion-text>
+
+</ion-content>

@@ -1,0 +1,78 @@
+<ion-header class="ion-no-border nu-backgroud">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="person-circle-sharp" md="person-circle-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="eye-outline" md="eye-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="help-circle-outline" md="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" ios="mail-outline" md="mail-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-text color="primary">
+    <p class="ion-padding-start">Olá, Empresa Modelo</p>
+  </ion-text>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Conta</b></h2>
+      </ion-label>
+      <ion-icon style="font-size: 16px;" slot="end" ios="chevron-forward-outline" md="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h1><b>R$ 7.846,53</b></h1>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <hr style="border-top-width: 1px; border-color: grey;">
+
+  <ion-list lines="none">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Cartão de Crédito</b></h2>
+      </ion-label>
+      <ion-icon style="font-size: 16px;" slot="end" ios="chevron-forward-outline" md="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h4><p>Fatura fechada</p></h4>
+        <h1><b>R$ 15.028,76</b></h1>
+        <h4><p>Vencimento dia 25</p></h4>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <hr style="border-top-width: 1px; border-color: grey;">
+
+  <ion-list lines="none">
+    <ion-item class="ion-padding-top" (click)="gotoCredit()">
+      <ion-label>
+        <h2><b>Agenda de Recebíveis</b></h2>
+      </ion-label>
+      <ion-icon style="font-size: 16px;" slot="end" ios="chevron-forward-outline" md="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-text>
+        <p>Antecipe seus recebimentos, sem burocracias e 100% digital</p>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

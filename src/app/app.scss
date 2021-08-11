@@ -1,0 +1,23 @@
+.nu-backgroud {
+  --background: #820ad1!important;
+  --ion-item-background: #820ad1!important;
+  --color: #820ad1!important;
+  --ion-color-primary: white!important;
+  --ion-color-primary-shade: #e3e3e3!important;
+  --color-activated: white!important;
+
+  background-color: #820ad1;
+
+  .native-input {
+    color: var(--ion-color-primary);
+  }
+
+  .button {
+    color: var(--ion-item-background);
+  }
+}
+
+.nu-toolbar {
+  --color: white!important;
+  background-color: #820ad1;
+}

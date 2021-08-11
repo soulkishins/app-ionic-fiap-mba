@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border nu-toolbar">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+          text=""
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Acesso a Agenda</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3><b>Bandeira</b></h3>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="optIn.banners[0]"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3><b>Adquirente</b></h3>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="optIn.acquirers[0]"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button color="primary" (click)="doOptIn()">Habilitar</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-text color="primary">
+    <p class="ion-padding">
+      Para ter dados de agenda, use os dados abaixo
+      Bandeiras = MCC, MCD ou VCD
+      Adquirente = 35722930000133, 04242332000133 ou 83859428000111"
+    </p>
+  </ion-text>
+
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header class="ion-no-border nu-toolbar">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+          text=""
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none" *ngIf="contract">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Contrato</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Bandeira</p>
+        <h1><b>{{contract.banners}}</b></h1>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Adquirente</p>
+        <h1><b>{{contract.acquirers}}</b></h1>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Valor do Contrato</p>
+        <h1><b>R$ {{contract.contractValue | number:'1.2-2'}}</b></h1>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Deságio</p>
+        <h1><b>R$ {{contract.discountValue | number:'1.2-2'}}</b></h1>
+        <p>Taxa efetiva {{contract.tax | number:'1.2-2'}} ao mês</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <p>Valor Recebido</p>
+        <h1><b>R$ {{contract.netValue | number:'1.2-2'}}</b></h1>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <hr style="border-top-width: 1px; border-color: grey;">
+
+  <ion-list lines="none" *ngIf="contract?.receivables">
+    <ion-item class="ion-padding-top">
+      <ion-label>
+        <h2><b>Recebíveis</b></h2>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let receivable of contract.receivables">
+      <ion-label>
+        <p>Valor</p>
+        <h1><b>R$ {{receivable.receivableValue | number:'1.2-2'}}</b></h1>
+        <p>Data Liquidação Prevista</p>
+        <h4><b>R$ {{receivable.receivableDate | date:'dd/MM/yyyy'}}</b></h4>
+        <p>Status</p>
+        <h5><b>{{translateState(receivable.state)}}</b></h5>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
