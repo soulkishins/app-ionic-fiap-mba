@@ -131,7 +131,7 @@ export class CreditData {
     return from(this.user.getUserID())
       .pipe(concatMap(userID => {
         return this.http
-          .post<HttpResponse<PreContract>>(`${environment.backendURL}/credit/contract/by-participant/${userID}`, preContract, this.OPTIONS)
+          .post<HttpResponse<PreContract>>(`${environment.backendURL}/credit/contract/by-participant/${userID}/simulate`, preContract, this.OPTIONS)
           .pipe(
             catchError(r => of(r)),
             map<any, PreContract>(this.processData, this)
@@ -139,11 +139,11 @@ export class CreditData {
       }))
   }
 
-  prepaymentReceivable(preContract: PreContract): Observable<Contract> {
+  prepaymentReceivable(preContract: PaymentCalendar): Observable<Contract> {
     return from(this.user.getUserID())
       .pipe(concatMap(userID => {
         return this.http
-          .post<HttpResponse<Contract>>(`${environment.backendURL}/credit/contract/by-participant/${userID}`, preContract, this.OPTIONS)
+          .post<HttpResponse<Contract>>(`${environment.backendURL}/credit/contract/by-participant/${userID}/prepayment`, preContract, this.OPTIONS)
           .pipe(
             catchError(r => of(r)),
             map<any, Contract>(this.processData, this)

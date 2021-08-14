@@ -27,18 +27,37 @@ export class CreditPage {
         optIns => {
           this.optIns = optIns && optIns[0] ? optIns : null;
           if (optIns) {
-            this.creditData
-              .findReceivables(optIns.map(optin => optin.id))
-              .subscribe(calendar => this.calendar = calendar);
+            this.loadPaymentCalendar();
           }
         }
       );
-    this.creditData
-      .findContracts()
-      .subscribe(contracts => this.contracts = contracts && contracts[0] ? contracts : null);
+      this.loadContracts();
   }
 
   viewContract(contract: Contract) {
     this.router.navigateByUrl("/contract", { state: contract });
+  }
+
+  prepayment() {
+    this.creditData.prepaymentReceivable(
+      this.calendar
+    ).subscribe(
+      () => {
+        this.loadPaymentCalendar();
+        this.loadContracts()
+      }
+    );
+  }
+
+  loadPaymentCalendar() {
+    this.creditData
+      .findReceivables(this.optIns.map(optin => optin.id))
+      .subscribe(calendar => this.calendar = calendar);
+  }
+
+  loadContracts() {
+    this.creditData
+      .findContracts()
+      .subscribe(contracts => this.contracts = contracts && contracts[0] ? contracts : null);
   }
 }

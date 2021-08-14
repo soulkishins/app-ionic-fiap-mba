@@ -58,7 +58,7 @@ export class PaymentDetail {
 }
 
 export class PreContract {
-  type: 'ENCUMBRANCE' | 'DISPOSAL';
+  type: 'ENGRAVE' | 'DISPOSAL';
 	protocol: string;
 	banners: string;
 	acquirers: string;
